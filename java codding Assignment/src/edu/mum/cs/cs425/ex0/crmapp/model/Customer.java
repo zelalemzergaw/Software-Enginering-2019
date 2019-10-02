@@ -1,9 +1,10 @@
 package edu.mum.cs.cs425.ex0.crmapp.model;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class Customer {
-    private int id;
+    private String id;
 
     private String name;
 
@@ -12,17 +13,17 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String name, LocalDate dateOfBirth) {
+    public Customer(String id, String name, LocalDate dateOfBirth) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -44,10 +45,17 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Customer :{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
-                '}';
+                '}' + "\n";
+    }
+    public static void main(String [] args){
+    Customer c1 =new Customer("3109128478","John Dean",LocalDate.of(1989,07,12));
+    Customer c2 =new Customer("2910019138","Anna Smith",LocalDate.of(1977,01,31));
+    Customer c3 =new Customer("3109128478","John",LocalDate.of(1989,11,18));
+    Customer [] cust={c1,c2,c3};
+    System.out.println(Arrays.toString(cust));
     }
 }
