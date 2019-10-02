@@ -1,4 +1,4 @@
-Public class Customer{
+public class Customer{
    private String id;
 
    private String name;
@@ -16,8 +16,34 @@ public Customer (String id, String name,LocalDate dateOfBirth){
  this.dateOfBirth;
 
 }
- //getter na setters
-Public static void main(String []args){
+
+public String id(){
+return id;
+}
+
+public String name(){
+return name;
+}
+
+public LocalDate dateOfBirth(){
+return dateOfBirth;
+}
+
+public void id(String id){
+   this.id=id;
+}
+
+public void name(String name){
+   this.name=name;
+}
+
+
+public void id(LocalDate dateOfBirth){
+   this.dateOfBirth=dateOfBirth;
+}
+
+
+public static void main(String []args){
  
 Customer c1=new Customer("3109128478","John Dean",LocalDate.of(1989,07,12));
  
