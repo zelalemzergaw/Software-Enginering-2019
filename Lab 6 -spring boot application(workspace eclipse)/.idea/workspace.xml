@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7091d460-74f1-4edd-958f-91a1e1241af2" name="Default Changelist" comment="" />
+    <list default="true" id="7091d460-74f1-4edd-958f-91a1e1241af2" name="Default Changelist" comment="first spring boot application 1" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570601366884</updated>
-      <workItem from="1570601371349" duration="1889000" />
+      <workItem from="1570601371349" duration="2226000" />
     </task>
     <task id="LOCAL-00001" summary="first spring boot application">
       <created>1570603185935</created>
@@ -134,6 +134,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first spring boot application" />
-    <option name="LAST_COMMIT_MESSAGE" value="first spring boot application" />
+    <MESSAGE value="first spring boot application 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="first spring boot application 1" />
   </component>
 </project>
