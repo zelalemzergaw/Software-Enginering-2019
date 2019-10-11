@@ -28,7 +28,7 @@ public class Student {
     public double cgpa;
 
     @Column(name = "DATE_OFO_ENROLLMENT")
-    @Temporal(value=TemporalType.DATE)
+    //@Temporal(value=TemporalType.DATE)
     public LocalDate dateOfEnrollment;
 
     public Student() {

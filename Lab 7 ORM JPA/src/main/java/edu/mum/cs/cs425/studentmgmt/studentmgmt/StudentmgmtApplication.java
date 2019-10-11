@@ -15,11 +15,25 @@ import java.time.LocalDate;
 
 @SpringBootApplication
 public class StudentmgmtApplication implements CommandLineRunner {
+
 @Autowired
 private LocalContainerEntityManagerFactoryBean factoryBean;
 
     public static void main(String[] args) {
         SpringApplication.run(StudentmgmtApplication.class, args);
+
+    }
+
+
+
+    @Override
+    public void run(String... args)  {
+        System.out.println("....Student management project....");
+    Student std= new Student(1,"000-61-0001","Anna","Lynn","Smith",3.45, LocalDate.of(2019,05,24));
+    saveStudents(std);
+        System.out.println("....Finishing Student management....");
+        System.out.printf( "Saved Student: { studentId:%d, student number:%d,first name:%s,middle name:%s,last name:%s, cgpa:%.2f, date of enrollement:%s}\n", std.getStudentId(),
+                std.getStudentNumber(), std.getFirstName(), std.getMiddleName(),std.getLastName(),std.getDateOfEnrollment());
 
     }
     private void saveStudents(Student s){
@@ -31,17 +45,5 @@ private LocalContainerEntityManagerFactoryBean factoryBean;
             em.close();
 
         }
-    }
-
-
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("....Student management project....");
-    Student std= new Student(1,"000-61-0001","Anna","Lynn","Smith",3.45, LocalDate.of(2019,05,24));
-    saveStudents(std);
-        System.out.println("....Finishing Student management....");
-        System.out.printf( "Saved Student: { studentId:%d, student number:%d,first name:%s,middle name:%s,last name:%s, cgpa:%.2f, date of enrollement:%s}\n", std.getStudentId(),
-                std.getStudentNumber(), std.getFirstName(), std.getMiddleName(),std.getLastName(),std.getDateOfEnrollment());
-
     }
 }
