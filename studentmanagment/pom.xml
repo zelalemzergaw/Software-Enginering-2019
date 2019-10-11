@@ -8,11 +8,11 @@
         <version>2.1.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>edu.mum.cs.cs425.studentmanagement2</groupId>
-    <artifactId>studentmanagment2</artifactId>
+    <groupId>edu.mum.cs.cs425.studentmanagment2</groupId>
+    <artifactId>studentmanagment</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>studentmanagment2</name>
-    <description>student managment 2</description>
+    <name>studentmanagment</name>
+    <description>lab 7-2</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -27,11 +27,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

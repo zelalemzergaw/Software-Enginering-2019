@@ -1,4 +1,4 @@
-package edu.mum.cs.cs425.studentmanagement2.studentmanagment2;
+package edu.mum.cs.cs425.studentmanagment2.studentmanagment;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Studentmanagment2ApplicationTests {
+public class StudentmanagmentApplicationTests {
 
     @Test
     public void contextLoads() {
