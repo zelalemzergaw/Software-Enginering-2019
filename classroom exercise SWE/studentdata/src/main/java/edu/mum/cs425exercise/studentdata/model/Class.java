@@ -1,19 +1,21 @@
 package edu.mum.cs425exercise.studentdata.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "classes")
 public class Class {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "building)_name")
     private String buildingName;
 
+    @Column(name = "room_number")
     private String roomNumber;
-
+    @OneToMany(mappedBy = "class")
     private List<Student> students;
 
     public Class(long id, String buildingName, String roomNumber, List<Student> students) {

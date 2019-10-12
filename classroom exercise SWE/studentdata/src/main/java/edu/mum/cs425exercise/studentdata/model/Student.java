@@ -30,18 +30,19 @@ public class Student {
     @Column(name = "cgpa")
     private float cgpa;
 
-    @Column(name ="date_of_entry")
+    @Column(name = "date_of_entry")
     private LocalDate dateOfEntry;
 
-    @ManyToMany(cascade =CascadeType.MERGE )
-    @JoinTable(name = "student_course",joinColumns = {@JoinColumn(name = "student_id",referencedColumnName = "student_id")},
-            inverseJoinColumns = {@JoinColumn(name = "course_id",referencedColumnName = "course_id")})
-    private List<Course> courses =new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "student_course", joinColumns = {@JoinColumn(name = "student_id", referencedColumnName = "student_id")},
+            inverseJoinColumns = {@JoinColumn(name = "course_id", referencedColumnName = "course_id")})
+    private List<Course> courses = new ArrayList<>();
 
-    @ManyToOne()
-    @JoinColumn(name = "")
+    @OneToMany
+    @JoinColumn(name = "classs_id")
     private List<Class> classes;
-
+    @OneToOne
+    @JoinColumn(name = "transcript_id")
     private Transcript transcript;
 
     public Student() {

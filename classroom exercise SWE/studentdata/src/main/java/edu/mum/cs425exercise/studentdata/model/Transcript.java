@@ -1,15 +1,19 @@
 package edu.mum.cs425exercise.studentdata.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "transcripts")
 public class Transcript {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @Column(name = "degree_title")
     private String degreeTitle;
 
+    @OneToOne(mappedBy = "transcript")
     private Student student;
 
     public Transcript(long id, String degreeTitle, Student student) {
