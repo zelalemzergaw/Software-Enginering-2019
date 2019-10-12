@@ -11,4 +11,6 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
+//    @Query("select s from Student where s.cgpa>?3 order by s.name")
+//  List<Student> getStudentByCgpaGreaterThan3(float cgpa);
 }
