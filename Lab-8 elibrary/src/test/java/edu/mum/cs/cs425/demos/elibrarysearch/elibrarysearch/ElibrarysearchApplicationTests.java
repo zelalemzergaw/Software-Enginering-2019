@@ -1,4 +1,4 @@
-package edu.mum.cs.cs425.demos.elibrarydemocrudweb;
+package edu.mum.cs.cs425.demos.elibrarysearch.elibrarysearch;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,10 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ElibraryDemocrudWebApplicationTests {
+public class ElibrarysearchApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }
