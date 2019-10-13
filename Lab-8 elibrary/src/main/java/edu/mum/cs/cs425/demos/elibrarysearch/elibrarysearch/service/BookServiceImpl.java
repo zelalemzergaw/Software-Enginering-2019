@@ -14,37 +14,37 @@ import java.awt.print.Pageable;
 public class BookServiceImpl implements BookService {
 
     @Autowired
-    public BookRepository bookRepository;
+    private BookRepository repository;
 
     @Override
     public Iterable<Book> getAllBooks() {
-        return bookRepository.findAll(Sort.by("title"));
+        return repository.findAll(Sort.by("title"));
     }
 
     @Override
-    public Page<Book> getAllBooksPage(int pageNo) {
-        return bookRepository.findAll(PageRequest.of(pageNo,3,Sort.by("title")));
+    public Page<Book> getAllBooksPaged(int pageNo) {
+        return repository.findAll(PageRequest.of(pageNo, 3, Sort.by("title")));
     }
 
     @Override
-    public Book saveBooK(Book book) {
-        return bookRepository.save(book);
+    public Book saveBook(Book book) {
+        return repository.save(book);
     }
 
     @Override
     public Book getBookById(Integer bookId) {
-        return bookRepository.findById(bookId).orElse(null);
+        return repository.findById(bookId).orElse(null);
     }
 
     @Override
-    public void deleteBooksById(Integer bookId) {
-    bookRepository.deleteById(bookId);
+    public void deleteBookById(Integer bookId) {
+        repository.deleteById(bookId);
     }
 
     @Override
-    public Page<Book> search(String search, int pageNo) {
-   Page<Book> students=bookRepository.findBooksByTitleContainsOrIsbnContainsOrPublisherContains
-                (search,search,search, (Pageable) PageRequest.of(pageNo,3, Sort.by("title")));
+    public Page<Book> search(String search,int pageNo) {
+        Page<Book> students  =repository.findBooksByTitleContainsOrIsbnContainsOrPublisherContains
+                (search,search,search, PageRequest.of(pageNo, 3, Sort.by("title")));
         return students;
     }
 }

@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 public interface BookService {
 
-    public  abstract Iterable<Book> getAllBooks();
-    public abstract Page<Book> getAllBooksPage(int pageNo);
-    public abstract  Book saveBooK(Book book);
+    public abstract Iterable<Book> getAllBooks();
+    public abstract Page<Book> getAllBooksPaged(int pageNo);
+    public abstract Book saveBook(Book book);
     public abstract Book getBookById(Integer bookId);
-    public abstract void deleteBooksById(Integer bookId);
-    Page<Book> search(String search,int pageNo);
+    public abstract void deleteBookById(Integer bookId);
+    Page<Book> search(String search, int pageno);
 
 
 }
