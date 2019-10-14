@@ -1,4 +1,4 @@
-package edu.mum.cs.student.eregistrar;
+package edu.mum.cs.cs425.eregistrar.eregistrar;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

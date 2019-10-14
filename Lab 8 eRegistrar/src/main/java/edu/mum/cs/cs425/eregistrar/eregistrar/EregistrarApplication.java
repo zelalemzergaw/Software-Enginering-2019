@@ -1,11 +1,10 @@
-package edu.mum.cs.student.eregistrar;
+package edu.mum.cs.cs425.eregistrar.eregistrar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class EregistrarApplication extends SpringBootServletInitializer {
+public class EregistrarApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(EregistrarApplication.class, args);
