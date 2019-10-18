@@ -16,7 +16,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/home")
+ @RequestMapping(value = "/home")
 public class HomeController {
 
     @Autowired

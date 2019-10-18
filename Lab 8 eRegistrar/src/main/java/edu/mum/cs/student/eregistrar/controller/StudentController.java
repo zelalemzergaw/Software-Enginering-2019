@@ -54,9 +54,7 @@ public class StudentController {
     @RequestMapping("/add-new-student")
     public String addStudent(Model model){
 
-
         model.addAttribute("student",new Student());
-
 
         return "add-new-student";
     }
