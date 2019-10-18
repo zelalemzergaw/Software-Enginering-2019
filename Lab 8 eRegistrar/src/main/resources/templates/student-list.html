@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" SYSTEM xmlns:th="http://www.w3.org/1999/xhtml" >
+<head>
+    <title> eRegistrar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {height: 450px}
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {height:auto;}
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="http://localhost:8080/home">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+
+            <a href="/home/view-all"> <button type="button" class="btn btn-primary btn-block btn-lg">View All Students</button></a><br/>
+            <a href="/home/add-new-student"> <button type="button" class="btn btn-primary btn-block btn-lg">Add New Student</button></a>
+            <br/> <div class="col-md-12">
+
+            <a href="cs.mum.edu">
+                <img src="../img/MUM_Logo.png" alt="MUM Logo" style="width:100%">
+                <div class="caption">
+                    <h3>eRegistrar SMS</h3>
+                </div>
+            </a>
+
+        </div>
+
+        </div>
+        <div class="col-sm-8 text-left">
+          <span style="width:50%;float: left;"> <h1> List of all Students</h1></span><br><br>
+            <span >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" style="width:40%;float: right;">
+
+                <form action="#" th:action="@{/home/search}" th:object="${student}" method="post" class="form-inline ml-auto"  >
+                    <div class="md-form my-0">
+                        <input class="form-control" type="text" name="search" required placeholder="Search" aria-label="Search">
+                        <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
+                    </div>
+
+                </form>
+
+            </div></span><br>
+            <hr>
+
+                <span th:if="${numberOfStudents == 0L}">No student(s) found</span>
+                <span th:unless="${numberOfStudents == 0}">
+            <table border="0" class="table-striped table">
+                <thead class="thead-dark" style="background-color: black;color: #f1f1f1">
+                    <th>Student No.</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>CGPA</th>
+                    <th>Enrollment Date</th>
+                    <th>International</th>
+                    <th colspan="2">Action</th>
+                    </tr>
+                </thead>
+
+                <tr th:each="temp:${students}">
+
+                    <td th:text="${temp.getStudentNo()}"/>
+                    <td th:text="${temp.getFirstName()}"/>
+                    <td th:text="${temp.getMiddleName()}"/>
+                    <td th:text="${temp.getLastName()}"/>
+                    <td th:text="${temp.getCgpa()}"/>
+                    <td th:text="${temp.getEnrollmentDate()}"/>
+                    <td th:text="${temp.getInternational()}"/>
+                    <!--Adding a button for update -->
+                    <td>
+
+                        <button class="btn btn-info btn-sm" th:onclick="'myUpdateFunction(\'' + ${temp.studentId} + '\');'">Update</button>
+                </td>
+                    <!--Adding a button for delete -->
+                    <td>
+                        <button class="btn btn-danger btn-sm" th:onclick="'myDelFunction(\'' + ${temp.studentId} + '\');'">Delete</button>
+                </td>
+                </tr>
+
+
+            </table>
+</span>
+            <span th:if="${students.totalPages>=1}">
+            <div>
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#">Pages: </a>
+                    </li>
+                    <li th:each="i : ${#numbers.sequence(1, students.totalPages)}"
+                        th:class="${currentPageNo}==${i-1}?'page-item active':'page-item'">
+                        <a th:href="@{${flashBack}(pageno=${i-1})}"
+                           th:text="${i}" class = "page-link"></a>
+                    </li>
+                </ul>
+            </div></span>
+
+            <hr>
+            <h3>Test</h3>
+            <p>Lorem ipsum...</p>
+        </div>
+        <div class="col-sm-2 sidenav">
+            <div class="well">
+                <p>ADS</p>
+            </div>
+            <div class="well">
+                <p>ADS</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="confirmDeleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Confirm Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure you wish to delete this book data?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class=" fixed-bottom text-center">
+    <p>Footer Text</p>
+</footer>
+
+<script>
+    function myUpdateFunction( s) {
+       if(confirm("Alert!!!!!!\nAre you sure you want to modify user information?")){
+
+           window.location.href='../home/showFormForUpdate?studentId='.concat(s);
+
+       }
+
+    }
+    function myDelFunction( s) {
+       if(confirm("Alert!!!!!!\nAre you sure you want to delete the user?")){
+
+           window.location.href='../home/deleteStudent?studentId='.concat(s);
+           window.alert('Successfully Deleted');
+       };
+
+    }
+</script>
+
+</body>
+
+</html>
