@@ -47,6 +47,16 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Account> accountList= new ArrayList<Account>();
 
+    @Transient
+    private Long accountType;
+    @Transient
+    private Long accountNumber;
+
+    @Transient
+    private Double balance;
+    @Transient
+    private String accountDetails;
+
 
 
 
