@@ -1,3 +1,5 @@
+package flatten;
+
 import java.util.Arrays;
 
 public class ArrayFlattener {
@@ -11,7 +13,7 @@ public class ArrayFlattener {
         int len=flatten.length;
         for(int i=0;i<len;i++){
             for(int j=0;j<flatten[i].length;j++){
-               if(j<=flatten[i].length)
+              // if(flatten[j].length<=flatten[i].length)
                 arr = flatten[j];
             }
 
