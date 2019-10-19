@@ -8,11 +8,7 @@ public class ArrayFlattener
 {
 
 
-    /**
-     * @author Dawit Anbessie
-     * @param arrays the 2D array
-     * @return flattened array
-     */
+
 
     public Integer [] flattenArray(Integer [][] arrays)
     {
